@@ -1,7 +1,7 @@
 # spring-la-mia-pizzeria-crud
 Applicazione web che gestisce la pizzeria.
 
-PARTE 1
+# PARTE 1
 Creazione della prima pagina (index) dove mostro tutte le pizze.
 
 Una pizza avrà le seguenti informazioni :
@@ -16,7 +16,7 @@ Implementazione del controller con il metodo index che restituisce una view (con
 L’elenco potrebbe essere vuoto : in quel caso mostrare un messaggio che indichi all’utente che non ci sono pizze presenti nella applicazione.
 Gestione  dei componenti riutilizzabili con i fragments.
 
-PARTE 2
+# PARTE 2
 Ogni pizza dell’elenco avrà quindi un pulsante che se cliccato porterà a una pagina che mostrerà i dettagli della pizza scelta.
 Dobbiamo quindi inviare l’id come parametro dell’URL, recuperarlo nel metodo del controller, caricare i dati della pizza ricercata e passarli come model.
 La view a quel punto li mostrerà all’utente con la grafica che preferiamo.
