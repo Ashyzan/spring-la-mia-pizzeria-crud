@@ -10,28 +10,26 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "pizza")
 public class PizzaModel {
-	
-	/*
-	 * - un nome
-	 * - una descrizione
-	 * - una foto (url)
-	 * - un prezzo
-	 * 
-	 * */
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable = false , unique = true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", nullable = false, unique = true)
 	private Integer id;
-	
-	@Column(name = "nome", nullable = false , unique = true)
+
+	@Column(name = "nome", nullable = false, unique = true)
 	private String nome;
-	
+
 	@Column(name = "descrizione", nullable = false)
 	private String descrizione;
-	
+
+	@Column(name = "ingredienti", nullable = true)
+	private String ingredienti;
+
 	@Column(name = "foto_url", nullable = true)
-	private String fotoUrl;
+	private String fotourl;
+
+	@Column(name = "prezzo", nullable = false)
+	private Double prezzo;
 
 	public Integer getId() {
 		return id;
@@ -58,13 +56,27 @@ public class PizzaModel {
 	}
 
 	public String getFotoUrl() {
-		return fotoUrl;
+		return fotourl;
 	}
 
 	public void setFotoUrl(String fotoUrl) {
-		this.fotoUrl = fotoUrl;
+		this.fotourl = fotoUrl;
 	}
-	
-	
+
+	public String getIngredienti() {
+		return ingredienti;
+	}
+
+	public void setIngredienti(String ingredienti) {
+		this.ingredienti = ingredienti;
+	}
+
+	public Double getPrezzo() {
+		return prezzo;
+	}
+
+	public void setPrezzo(Double prezzo) {
+		this.prezzo = prezzo;
+	}
 
 }
