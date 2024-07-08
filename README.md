@@ -22,7 +22,7 @@ Dobbiamo quindi inviare l’id come parametro dell’URL, recuperarlo nel metodo
 La view a quel punto li mostrerà all’utente con la grafica che preferiamo.
 Nella pagina con l’elenco delle pizze aggiungiamo un campo di testo che se compilato filtrerà le pizze (lato server) aventi come titolo quello inserito dall’utente.
 
-# 3 nuove implementazioni 
+# PARTE 3
 Abbiamo la lista delle pizze, abbiamo i dettagli delle pizze...perchè non realizzare la pagina per la creazione di una nuova pizza?
 Aggiungiamo quindi tutto il codice necessario per mostrare il form per la creazione di una nuova pizza e per il salvataggio dei dati in tabella.
 Nella index creiamo ovviamente il bottone “Crea nuova pizza” che ci porta a questa nuova pagina creata.
