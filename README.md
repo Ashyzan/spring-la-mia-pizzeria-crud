@@ -10,6 +10,7 @@ Una pizza avrà le seguenti informazioni :
 - una foto (url)
 - ingredienti
 - un prezzo
+- 
 Creazione del database db_pizzeria, repository e l'entity per gestire le CRUD delle pizze.
 Implementazione del controller con il metodo index che restituisce una view (con boostrap) per mostrare l’elenco delle pizze caricate dal database 
 L’elenco potrebbe essere vuoto : in quel caso mostrare un messaggio che indichi all’utente che non ci sono pizze presenti nella applicazione.
