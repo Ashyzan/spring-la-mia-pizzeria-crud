@@ -6,6 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pizza")
@@ -16,9 +18,11 @@ public class PizzaModel {
 	@Column(name = "id", nullable = false, unique = true)
 	private Integer id;
 
+	@NotBlank(message = "Il nome della pizza è obbligatorio")
 	@Column(name = "nome", nullable = false, unique = true)
 	private String nome;
 
+	@NotBlank(message = "La descrizione della pizza è obbligatoria")
 	@Column(name = "descrizione", nullable = false)
 	private String descrizione;
 
@@ -28,6 +32,7 @@ public class PizzaModel {
 	@Column(name = "foto_url", nullable = true)
 	private String fotourl;
 
+	@NotNull(message = "Il prezzo della pizza è obbligatorio")
 	@Column(name = "prezzo", nullable = false)
 	private Double prezzo;
 
