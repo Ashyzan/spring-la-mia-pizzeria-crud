@@ -47,13 +47,13 @@ public class PizzaController {
 	}
 
 	@PostMapping("/create")
-	public String salvaPizza(@Valid @ModelAttribute("pizza") PizzaModel pizza, BindingResult bindingresult,
+	public String salvaPizza(@Valid @ModelAttribute("pizza") PizzaModel formpizza, BindingResult bindingresult,
 			Model model) {
 
 		if (bindingresult.hasErrors()) {
 			return "/pizzeria/create";
 		}
-		repository.save(pizza);
+		repository.save(formpizza);
 
 		return "redirect:/pizzeria/index";
 	}

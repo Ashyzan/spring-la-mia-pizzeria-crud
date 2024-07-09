@@ -15,29 +15,29 @@
 				
 				<h3 class="mb-4">Inserisci una nuova pizza</h3>
 				
-				<form id="form-pizza"
+				<form id="formpizza"
 						th:action="@{/pizzeria/create}"
 						method="post"
 						th:object="${pizza}">
 						
 						<div class="mb-3">
 						  <label for="input" class="form-label">Nome Pizza</label>
-						  <input type="text" class="form-control" id="nome" placeholder="nome pizza">
+						  <input type="text" class="form-control" id="nome" placeholder="nome pizza" th:field="*{nome}">
 						</div>
 						
 						<div class="mb-3">
 						<label for="input" class="form-label">Descrizione Pizza</label>
-						<input type="text" class="form-control" id="descrizione" placeholder="descrizione pizza">
+						<input type="text" class="form-control" id="descrizione" placeholder="descrizione pizza" th:field="*{descrizione}">
 						</div>
 
 						<div class="mb-3">
 						 <label for="input" class="form-label">Ingredienti Pizza</label>
-						 <input type="text" class="form-control" id="ingredienti" placeholder="ingredienti pizza">
+						 <input type="text" class="form-control" id="ingredienti" placeholder="ingredienti pizza" th:field="*{ingredienti}">
 						 </div>
 						 
 						 <div class="mb-3">
 						 <label for="input" class="form-label">Prezzo Pizza</label>
-						 <input type="number" class="form-control" id="prezzo" placeholder="es. 5,00">
+						 <input type="number" class="form-control" id="prezzo" placeholder="es. 5,00" th:field="*{prezzo}">
 						 </div>
 						 
 						 <div th:if="${#fields.hasAnyErrors()}">
