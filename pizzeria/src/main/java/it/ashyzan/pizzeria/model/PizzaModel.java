@@ -29,7 +29,7 @@ public class PizzaModel {
 	@Column(name = "ingredienti", nullable = true)
 	private String ingredienti;
 
-	@Column(name = "foto_url", nullable = true)
+	@Column(name = "fotourl", nullable = true)
 	private String fotourl;
 
 	@NotNull(message = "Il prezzo della pizza è obbligatorio")
@@ -60,12 +60,12 @@ public class PizzaModel {
 		this.descrizione = descrizione;
 	}
 
-	public String getFotoUrl() {
+	public String getFotourl() {
 		return fotourl;
 	}
 
-	public void setFotoUrl(String fotoUrl) {
-		this.fotourl = fotoUrl;
+	public void setFotourl(String fotourl) {
+		this.fotourl = fotourl;
 	}
 
 	public String getIngredienti() {
