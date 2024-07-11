@@ -16,7 +16,7 @@
 				<h3 class="mb-4">Le nostre pizze CRUD</h3>	  
 					  <div  th:if="${pizze.size() <= 0}">La lista delle pizze è vuota</div>
 					  <div class="card-columns">
-					  <div th:each="item: ${pizze}" class="card" style="width: 18rem; display:inline-block;margin-right:40px;">
+					  <div th:each="item: ${pizze}" class="card" style="width: 18rem; display:inline-block;margin-right:20px;margin-left:20px;">
 					    <img class="card-img-top" alt="Pizze buone"	th:src="${item.fotourl}">
 					    <div class="card-body">
 					      <h5 class="card-title" th:text="${item.nome}"></h5>
@@ -27,7 +27,7 @@
 					  </div>
 					  </div>
 <!--				bottone inserisci una nuova pizza -->
-<a th:href="@{/pizzeria/create}" class="btn btn-primary">Inserisci una nuova pizza</a>
+<a th:href="@{/pizzeria/create}" class="btn btn-success">Inserisci una nuova pizza</a>
 						
 			</div>
 		    </div>	    
