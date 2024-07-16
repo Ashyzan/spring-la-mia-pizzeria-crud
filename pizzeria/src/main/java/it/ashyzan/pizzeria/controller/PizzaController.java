@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,6 +41,8 @@ public class PizzaController {
 		return "/pizzeria/ingredienti";
 	}
 
+	// inserimento nuova pizza
+
 	@GetMapping("/create")
 	public String create(Model model) {
 		model.addAttribute("pizza", new PizzaModel());
@@ -47,13 +50,53 @@ public class PizzaController {
 	}
 
 	@PostMapping("/create")
-	public String salvaPizza(@Valid @ModelAttribute("pizza") PizzaModel formpizza, BindingResult bindingresult,
+	public String salvaPizza(@Valid @ModelAttribute("pizza") PizzaModel pizza, BindingResult bindingresult,
 			Model model) {
+
+		if (pizza.getPrezzo() <= 0) {
+
+			bindingresult.addError(new ObjectError("Errore di prezzo", "Il prezzo della pizza è obbligatorio"));
+
+		}
 
 		if (bindingresult.hasErrors()) {
 			return "/pizzeria/create";
 		}
-		repository.save(formpizza);
+		repository.save(pizza);
+
+		return "redirect:/pizzeria/index";
+	}
+
+	// modifica delle pizze già inserite
+
+	@GetMapping("/edit/{id}")
+	public String modificaPizza(@PathVariable("id") Integer id, Model model) {
+		model.addAttribute("pizza", repository.getReferenceById(id));
+		return "/pizzeria/edit";
+	}
+
+	@PostMapping("/edit/{id}")
+	public String update(@Valid @ModelAttribute("pizza") PizzaModel pizza, BindingResult bindingresult, Model model) {
+
+		if (pizza.getPrezzo() <= 0) {
+
+			bindingresult.addError(new ObjectError("Errore di prezzo", "Il prezzo della pizza è obbligatorio"));
+
+		}
+
+		if (bindingresult.hasErrors()) {
+			return "/pizzeria/edit";
+		}
+		repository.save(pizza);
+
+		return "redirect:/pizzeria/index";
+	}
+
+	// delete pizza
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable("id") Integer id) {
+
+		repository.deleteById(id);
 
 		return "redirect:/pizzeria/index";
 	}

@@ -18,8 +18,10 @@ public class PizzaModel {
 	@Column(name = "id", nullable = false, unique = true)
 	private Integer id;
 
+	// not blank va solo sulle stringhe, permette di cancellare l'input
+	// se l'utente inserisce spazi nel field e restituire null.
 	@NotBlank(message = "Il nome della pizza è obbligatorio")
-	@Column(name = "nome", nullable = false, unique = true)
+	@Column(name = "nome", nullable = false)
 	private String nome;
 
 	@NotBlank(message = "La descrizione della pizza è obbligatoria")
@@ -34,7 +36,7 @@ public class PizzaModel {
 
 	@NotNull(message = "Il prezzo della pizza è obbligatorio")
 	@Column(name = "prezzo", nullable = false)
-	private Double prezzo;
+	private double prezzo;
 
 	public Integer getId() {
 		return id;
@@ -76,11 +78,11 @@ public class PizzaModel {
 		this.ingredienti = ingredienti;
 	}
 
-	public Double getPrezzo() {
+	public double getPrezzo() {
 		return prezzo;
 	}
 
-	public void setPrezzo(Double prezzo) {
+	public void setPrezzo(double prezzo) {
 		this.prezzo = prezzo;
 	}
 
