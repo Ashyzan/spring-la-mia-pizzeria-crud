@@ -50,8 +50,18 @@ public class PizzaController {
 	}
 
 	@PostMapping("/create")
-	public String salvaPizza(@Valid @ModelAttribute("pizza") PizzaModel pizza, BindingResult bindingresult,
-			Model model) {
+	public String salvaPizza(@Valid @ModelAttribute("pizza") PizzaModel pizza, BindingResult bindingresult, Model model)
+//			, 		@RequestParam("image") MultipartFile file) throws IOException 
+	{
+
+//		// CARICAMENTO FILE
+//		StringBuilder fileNames = new StringBuilder();
+//		Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, file.getOriginalFilename());
+//		fileNames.append(file.getOriginalFilename());
+//		Files.write(fileNameAndPath, file.getBytes());
+//		model.addAttribute("msg", "Uploaded images: " + fileNames.toString());
+
+		// CONTROLLO PREZZO
 
 		if (pizza.getPrezzo() <= 0) {
 
@@ -101,4 +111,6 @@ public class PizzaController {
 		return "redirect:/pizzeria/index";
 	}
 
+	// upload image files
+	// public static String UPLOAD_DIRECTORY = System.getProperty("/img");
 }
